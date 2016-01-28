@@ -2354,7 +2354,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: rip unicorn
+  m_Text: 'Destroy the Unicorn!
+
+    Instantly gain 350 points on kill!'
 --- !u!222 &690501422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7873,7 +7875,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: yey unicorn
+  m_Text: Keep Unicorn and hope it's grattitude brings great rewards when defeating
+    the giant goose!
 --- !u!222 &1950215271
 CanvasRenderer:
   m_ObjectHideFlags: 0
