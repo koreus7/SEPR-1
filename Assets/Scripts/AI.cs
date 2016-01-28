@@ -57,6 +57,12 @@ public class AI : MonoBehaviour {
 		return Mathf.Abs((player.transform.position - this.transform.position).magnitude);
 	}
 
+	float dist2DtoPlayer() {
+		Vector3 dist = player.transform.position - this.transform.position;
+		dist.y = 0;
+		return Mathf.Abs (dist.magnitude);
+	}
+
 
 	protected void Move () {
 		if (distanceToPlayer () >= distanceToChasePlayer) {
@@ -76,7 +82,9 @@ public class AI : MonoBehaviour {
 			Vector3 lpos = player.transform.position;
 			lpos.y = transform.position.y;
 			transform.LookAt(lpos);
-			rigid.MovePosition(transform.position + (transform.forward * Time.deltaTime * chasingPlayerMoveSpeed));
+			if(dist2DtoPlayer() >= 1.4f) {
+				rigid.MovePosition(transform.position + (transform.forward * Time.deltaTime * chasingPlayerMoveSpeed));
+			}
 			state = State.Chasing;
 		}
 	}

@@ -238,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 126.564003, y: 7.30000019, z: -39.9770012}
+  m_LocalPosition: {x: 2.38293457, y: .870000005, z: 10.5083008}
   m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children:
   - {fileID: 462424}
@@ -309,8 +309,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.53000021, y: 3.14392114, z: 5.17000008}
-  m_Center: {x: 0, y: .188055038, z: .9400177}
+  m_Size: {x: 3.53000021, y: 3.14392114, z: 10.6407452}
+  m_Center: {x: 0, y: .188055038, z: 3.67538452}
 --- !u!95 &9533070
 Animator:
   serializedVersion: 3
@@ -350,6 +350,7 @@ MonoBehaviour:
   missionProgressTags:
   - killrabbits
   - killall
+  useEfficiency: 1
 --- !u!137 &13795580
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -368,7 +369,9 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}

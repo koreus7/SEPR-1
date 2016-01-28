@@ -36,6 +36,8 @@ public class Enemy : AI {
 	// Use this for initialization
 	void Start () {
 		lastDamageTime = Time.time;
+		player = GameObject.FindGameObjectWithTag ("Player");
+		rigid = this.GetComponent<Rigidbody> ();
 	}
 	
 	//once per physics update
