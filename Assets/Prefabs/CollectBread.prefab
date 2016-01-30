@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 183.935364, y: 1.02999997, z: 101.993408}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_LocalPosition: {x: 183.93536, y: 1.03, z: 101.99341}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,8 +50,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -73,8 +75,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.40999985, y: 5.30000019, z: 5.73999977}
-  m_Center: {x: -.29840827, y: 0, z: 0}
+  m_Size: {x: 8.41, y: 5.3, z: 5.74}
+  m_Center: {x: -0.29840827, y: 0, z: 0}
 --- !u!114 &11442860
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,9 +91,12 @@ MonoBehaviour:
   pointsOnCollect: 10
   resourceOnCollect: 5
   energyOnCollect: 5
+  healthOnCollect: 0
   pointsEffect: {fileID: 114386, guid: c2a1bce35110e4b55a03ed54dc69db75, type: 2}
+  powerup: 0
   bob: 1
-  bobAmount: .200000003
+  abundace: 0.7
+  bobAmount: 0.2
   bobSpeed: 1
 --- !u!1001 &100100000
 Prefab:
@@ -127,6 +132,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: energyOnCollect
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: abundace
+      value: 0.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

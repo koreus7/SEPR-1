@@ -6211,30 +6211,14 @@ MonoBehaviour:
   - {fileID: 152848, guid: 2fcba16d76ecf46e4a06e64c0cfe1ef7, type: 2}
   - {fileID: 119402, guid: a639eff8fedec47c2b82c84de735b73b, type: 2}
   enemySpawnEffect: {fileID: 147994, guid: 1076b104891bb4be8b89e345ece0a9a4, type: 2}
-  collectables:
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
+  collectablePrefabs:
   - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 156904, guid: 41fd3f8790aacdd42a9b2ab392893341, type: 2}
-  - {fileID: 134128, guid: 6a1bc12b71a85a043810fa872e4d366f, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
   - {fileID: 130044, guid: 642393610aa63f545addf74c1167d620, type: 2}
   - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
-  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
-  collSpawnRadius: 50
-  maxCollectables: 30
-  collectableSpawnHeight: 0
+  - {fileID: 156904, guid: 41fd3f8790aacdd42a9b2ab392893341, type: 2}
+  collSpawnRadius: 65
+  maxCollectables: 20
+  collectableSpawnHeight: 0.5
 --- !u!4 &1603136448
 Transform:
   m_ObjectHideFlags: 0
@@ -6300,6 +6284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   currentState: 0
+  playerController: {fileID: 0}
   currentPowerupState: 0
   points: 0
   resources: 10

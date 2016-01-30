@@ -12,7 +12,8 @@ public class PlayerStates : MonoBehaviour {
 	//singleton. Access with PlayerStates.instance. ...
 	public static PlayerStates inst;
 	public static PlayerStates instance {
-		get {
+		get
+        {
 			if (inst == null) {
 				inst =  FindObjectOfType(typeof (PlayerStates)) as PlayerStates;
 			}
@@ -51,15 +52,19 @@ public class PlayerStates : MonoBehaviour {
 	/// </summary>
 	public State currentState;
 
-	/// <summary>
-	/// Current powerup state of the player.
-	/// </summary>
-	public PowerUpState currentPowerupState;
+    public PlayerController playerController;
 
-	/// <summary>
-	/// Current points the player has.
-	/// </summary>
-	public int points;
+
+    /// <summary>
+    /// Current powerup state of the player.
+    /// </summary>
+    public PowerUpState currentPowerupState;
+
+
+    /// <summary>
+    /// Current points the player has.
+    /// </summary>
+    public int points;
 
 	/// <summary>
 	/// Current resources the player has.
@@ -152,6 +157,27 @@ public class PlayerStates : MonoBehaviour {
 		currentState = st;
 		lastIncreaseTime = Time.time;
 	}
+
+
+    /// <summary>
+    /// Collect a powerup state.
+    /// None cannot be collected.
+    /// </summary>
+    /// <param name="powerup"></param>
+    public void collectPowerup(PowerUpState powerup)
+    {
+        if (powerup != PowerUpState.None && powerup != currentPowerupState){
+            currentPowerupState = powerup;
+            playerController.onPowerupStateChanged(currentPowerupState);
+        }
+    }
+
+    public void cancelPowerups()
+    {
+        currentPowerupState = PowerUpState.None;
+
+        playerController.onPowerupStateChanged(currentPowerupState);
+    }
 
 	/// <summary>
 	/// Handles player energy, decreases when flying and increases when grounded.

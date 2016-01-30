@@ -23,15 +23,32 @@ public class Collectable : MonoBehaviour {
 	/// </summary>
 	public int energyOnCollect;
 
+
+    /// <summary>
+    /// Health gained on collection.
+    /// </summary>
+    public int healthOnCollect;
+
 	/// <summary>
 	/// Gameobject that is instantiated when the player collides
 	/// </summary>
 	public GameObject pointsEffect;
 
+
+    /// <summary>
+    /// The powerup to give the player when collected.
+    /// </summary>
+    public PlayerStates.PowerUpState powerup;
+
 	/// <summary>
 	/// Does the object bob?
 	/// </summary>
 	public bool bob;
+
+    /// <summary>
+    /// How likley it is to spawn.
+    /// </summary>
+    public float abundace = 0.5f;
 
 	/// <summary>
 	/// Amount that thet object bobs by (top to bottom): units
@@ -52,8 +69,8 @@ public class Collectable : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startPosition = transform.position;
-		player = GameObject.FindGameObjectWithTag ("Player");
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -80,7 +97,9 @@ public class Collectable : MonoBehaviour {
 	/// <param name="c">The thing we collided with</param>
 	void OnTriggerEnter (Collider c) {
 		if(c.transform.tag == "Player") {
-			PlayerStates.instance.alterPoints(pointsOnCollect);
+            PlayerStates.instance.alterHealth(healthOnCollect);
+            PlayerStates.instance.alterPoints(pointsOnCollect);
+            PlayerStates.instance.collectPowerup(powerup);
 			GUIHandler.instance.updatePointsText(PlayerStates.instance.points.ToString(), "+"+pointsOnCollect.ToString());
 			if(resourceOnCollect != 0) {
 				PlayerStates.instance.alterResources(resourceOnCollect);

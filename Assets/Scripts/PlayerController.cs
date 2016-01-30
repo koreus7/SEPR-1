@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 /// <summary>
 /// Link to website: https://shelduck.wordpress.com/
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour {
 	/// </summary>
 	public float flightHeight = 0.25f;
 
+
+    public float powerupTime = 10.0f;
+    float powerupTimeElapsed = 0.0f;
+    
+
 	//current height of the player
 	float currentHeight;
 
@@ -93,6 +99,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		//get easy, readable reference to playerstates.
 		p = PlayerStates.instance;
+        p.playerController = this;
 	}
 	
 	// Update is called once per physics update
@@ -113,11 +120,11 @@ public class PlayerController : MonoBehaviour {
 				pos += transform.forward * Input.GetAxis ("Vertical") * movementSpeed * movementSpeedMod * Time.deltaTime;
 				pos += transform.right * Input.GetAxis ("Horizontal") * movementSpeed * movementSpeedMod * Time.deltaTime;
 			} else if(p.currentState == PlayerStates.State.Flying) {
-				pos += transform.forward * Input.GetAxis ("Vertical") * Mathf.Clamp (distanceToGround ()*2, movementSpeed, flightSpeed) * Time.deltaTime;
-				pos += transform.right * Input.GetAxis ("Horizontal") * Mathf.Clamp (distanceToGround ()*2, movementSpeed, flightSpeed) * Time.deltaTime;
+				pos += transform.forward * Input.GetAxis ("Vertical") * Mathf.Clamp (distanceToGround ()*2, movementSpeed, flightSpeed) * movementSpeedMod * Time.deltaTime;
+				pos += transform.right * Input.GetAxis ("Horizontal") * Mathf.Clamp (distanceToGround ()*2, movementSpeed, flightSpeed) * movementSpeedMod * Time.deltaTime;
 			} else {
-				pos += transform.forward * Input.GetAxis ("Vertical") * swimSpeed * Time.deltaTime;
-				pos += transform.right * Input.GetAxis ("Horizontal") * swimSpeed * Time.deltaTime;
+				pos += transform.forward * Input.GetAxis ("Vertical") * swimSpeed * movementSpeedMod * Time.deltaTime;
+				pos += transform.right * Input.GetAxis ("Horizontal") * swimSpeed * movementSpeedMod * Time.deltaTime;
 			}
 		}
 		//looking around
@@ -131,7 +138,7 @@ public class PlayerController : MonoBehaviour {
 			//Jumping because mushroom mode.
 			if (shroomed ()) {
 				if (distanceToGround() <= 1.0f) {
-					r.velocity = new Vector3 (0, 6, 0);
+                    jump(10);
 				}
 			}
 			//flying up
@@ -170,6 +177,14 @@ public class PlayerController : MonoBehaviour {
 
 		//apply transformation
 		r.MovePosition (pos);
+
+
+        powerupTimeElapsed += Time.deltaTime;
+
+        if (p.currentPowerupState != PlayerStates.PowerUpState.None && powerupTimeElapsed >= powerupTime)
+        {
+            p.cancelPowerups();
+        }
 	}
 
 	/// <summary>
@@ -282,14 +297,69 @@ public class PlayerController : MonoBehaviour {
 
 				Instantiate (invincibleKillEffect, c.transform.position, Quaternion.identity);
 			}
-
-			//If we bump in to an enemy while shroomed kill them if we landed on top.
-			if(shroomed ())
-			{
-				
-			}
 		}
 	}
 
+    /// <summary>
+    /// Called by player states when the current powerup state changes.
+    /// </summary>
+    public void onPowerupStateChanged(PlayerStates.PowerUpState value)
+    {
+        if (value == PlayerStates.PowerUpState.Shroomed)
+        {
+            if (p.currentState == PlayerStates.State.Flying)
+            {
+                startWalking();
+            }
 
+            grow();
+
+        }
+
+
+        if (value == PlayerStates.PowerUpState.Invincible)
+        {
+            shrink();
+            ///TODO Make player colourful.
+        }
+
+
+        if (value == PlayerStates.PowerUpState.None)
+        {
+            shrink();
+        }
+        else
+        {
+            //We have got a powerup so start the timer to disable it.
+            powerupTimeElapsed = 0.0f;
+        }
+    }
+
+
+    /// <summary>
+    /// Jump up (so we dont fall through the ground) and grow.
+    /// </summary>
+    void grow() {
+        jump(12);
+        transform.DOScale(0.3f, 0.5f)
+                .SetEase(Ease.InBounce);
+    }
+
+    /// <summary>
+    /// Scale back to normal size.
+    /// </summary>
+    void shrink(){
+        transform.DOScale(0.1f, 0.5f)
+            .SetEase(Ease.InBounce);
+    }
+
+
+    /// <summary>
+    /// Jump up by the amount.
+    /// </summary>
+    /// <param name="amount"></param>
+    public void jump(float amount)
+    {
+        r.velocity = new Vector3(0, amount, 0);
+    }
 }

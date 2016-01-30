@@ -58,8 +58,20 @@ public class Spawner : MonoBehaviour {
 	/// </summary>
 	public GameObject enemySpawnEffect;
 
-	public List<GameObject> collectables = new List<GameObject>();
-	public float collSpawnRadius;
+
+    /// <summary>
+    /// The collectables to be spawned.
+    /// </summary>
+    public List<GameObject> collectablePrefabs = new List<GameObject>();
+
+
+    /// <summary>
+    /// The collectable components of the collectables to be spawned
+    /// </summary>
+	private List<Collectable> collectables = new List<Collectable>();
+
+
+    public float collSpawnRadius;
 
 	float collScanHeight;
 	int currentActiveCollectables;
@@ -75,6 +87,7 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
+        GetCollectableComponents();
 		initialMaxEnemies = maxEnemies;
 	}
 
@@ -138,9 +151,55 @@ public class Spawner : MonoBehaviour {
 	/// Spawns a random collectable.
 	/// </summary>
 	public void spawnCollectable () {
-		Instantiate(collectables[Random.Range (0,collectables.Count)], radiusAboutPlayer(collSpawnRadius,0.3f,50), Quaternion.identity);
+		Instantiate(pickRandomCollectable(), radiusAboutPlayer(collSpawnRadius,0.3f,50), Quaternion.identity);
 		currentActiveCollectables++;
 	}
+
+
+    /// <summary>
+    /// Chooses a random collectable from the list weighted by the
+    /// abundance property of each collectable.
+    /// </summary>
+    public GameObject pickRandomCollectable() {
+
+        float totalAbundance = 0.0f;
+
+        foreach (Collectable c in collectables)
+        {
+            totalAbundance += c.abundace;
+        }
+
+
+        float random = Random.Range(0, totalAbundance);
+        float count = 0;
+
+        //Default return value.
+        GameObject chosenCollectable = collectables[0].gameObject;
+
+
+        foreach (Collectable c in collectables)
+        {
+            if (count + c.abundace >= random)
+            {
+                chosenCollectable = c.gameObject;
+                break;
+            }
+            count += c.abundace;
+        }
+
+
+        return chosenCollectable;
+    }
+
+    public void GetCollectableComponents()
+    {
+        collectables.Clear();
+
+        foreach (GameObject g in collectablePrefabs)
+        {
+            collectables.Add(g.GetComponent<Collectable>());
+        }
+    }
 
 	/// <summary>
 	/// Changes the spawn rates.

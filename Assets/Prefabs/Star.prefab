@@ -42,8 +42,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.70489502, y: .827206492, z: 17.4063721}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalPosition: {x: -5.704895, y: 0.8272065, z: 17.406372}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 494872}
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.51999998, z: 0}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449782}
@@ -81,7 +81,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -103,8 +103,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.80190849, y: 3.65685654, z: .599999964}
-  m_Center: {x: .0215690136, y: .170353234, z: -.299999982}
+  m_Size: {x: 3.8019085, y: 3.6568565, z: 0.59999996}
+  m_Center: {x: 0.021569014, y: 0.17035323, z: -0.29999998}
 --- !u!95 &9516568
 Animator:
   serializedVersion: 3
@@ -133,13 +133,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3736334d947f745d3a981f6d724169e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsOnCollect: 1
-  resourceOnCollect: 1
-  energyOnCollect: 1
+  pointsOnCollect: 100
+  resourceOnCollect: 0
+  energyOnCollect: 0
+  healthOnCollect: 0
   pointsEffect: {fileID: 0}
-  bob: 0
+  powerup: 1
+  bob: 1
+  abundace: 0.015
   bobAmount: 0
-  bobSpeed: 0
+  bobSpeed: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -149,14 +152,30 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: pointsOnCollect
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: resourceOnCollect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: energyOnCollect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: abundace
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bob
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bobSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: powerup
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -744,7 +744,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.43, y: 1.41, z: 6.05}
+  m_Size: {x: 6.27, y: 4.5, z: 6.05}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6514042
 BoxCollider:
@@ -824,6 +824,7 @@ MonoBehaviour:
   invincibleKillEffect: {fileID: 182882, guid: 8ec12e4ce6cda4e729cbd3d5dc84d312, type: 2}
   jumpWeapon: {fileID: 193402}
   flightHeight: 0.25
+  powerupTime: 15
 --- !u!114 &11484422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -851,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidBody: {fileID: 5409424}
+  playerController: {fileID: 11459234}
 --- !u!137 &13763248
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
