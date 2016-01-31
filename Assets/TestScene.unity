@@ -336,6 +336,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76330408}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &77170846 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11456718, guid: 2431e8657f79f4e77978bc3c8dcb2780,
+    type: 2}
+  m_PrefabInternal: {fileID: 1683908254}
+  m_Script: {fileID: 11500000, guid: 22ebd65081f5a4474b5e77abd525adb7, type: 3}
 --- !u!1 &149419402
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +809,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11425762, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
+      propertyPath: missions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 458584, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 124.7411
@@ -875,6 +885,18 @@ Prefab:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 429470878}
+    - target: {fileID: 11425762, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
+      propertyPath: missions.Array.data[0]
+      value: 
+      objectReference: {fileID: 77170846}
+    - target: {fileID: 11425762, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
+      propertyPath: missions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1416128093}
+    - target: {fileID: 11425762, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
+      propertyPath: missions.Array.data[2]
+      value: 
+      objectReference: {fileID: 152370634}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 962548be9080fe14cadfc529b295f69a, type: 2}
   m_IsPrefabParent: 0
@@ -2133,6 +2155,12 @@ RectTransform:
   m_AnchoredPosition: {x: 128, y: -128}
   m_SizeDelta: {x: 240, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1416128093 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11420756, guid: 875bcb1c3bdae4833b71f71e39d12ba7,
+    type: 2}
+  m_PrefabInternal: {fileID: 2123362005}
+  m_Script: {fileID: 11500000, guid: 22ebd65081f5a4474b5e77abd525adb7, type: 3}
 --- !u!1 &1445008674
 GameObject:
   m_ObjectHideFlags: 0
