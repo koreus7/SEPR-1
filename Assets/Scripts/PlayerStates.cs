@@ -86,6 +86,10 @@ public class PlayerStates : MonoBehaviour {
 	/// </summary>
 	public float energyFlyingDecreaseRate;
 
+	public Text statusText;
+	bool shownLazerText = false;
+	bool shownBreadText = false;
+
 	//private variable for handling gradual energy increase.
 	float lastIncreaseTime;
 
@@ -147,6 +151,25 @@ public class PlayerStates : MonoBehaviour {
 
 	public void alterResources(int amount) {
 		resources += amount;
+		if (resources >= 50 && !shownBreadText) {
+			shownBreadText = true;
+			CancelInvoke("ResetStatusText");
+			statusText.text = "You can buy bread powerup";
+			statusText.gameObject.SetActive(true);
+			Invoke ("ResetStatusText", 5);
+		}
+		if (resources >= 60 && !shownLazerText) {
+			shownLazerText = true;
+			CancelInvoke("ResetStatusText");
+			statusText.text = "You can buy lazer powerup";
+			statusText.gameObject.SetActive(true);
+			Invoke ("ResetStatusText", 5);
+		}
+	}
+
+	void ResetStatusText() {
+		statusText.text = "";
+		statusText.gameObject.SetActive (false);
 	}
 
 	/// <summary>

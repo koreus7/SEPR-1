@@ -31,25 +31,43 @@ public class MissionManager : MonoBehaviour {
 	/// </summary>
 	public List<Mission> missions = new List<Mission>();
 
+	public List<Mission> pendingMissions = new List<Mission>();
+
 	/// <summary>
 	/// Used for internal structure of the class.
 	/// </summary>
 	public Dictionary<string, Mission> missionsDict = new Dictionary<string,Mission>();
 
+	public int interval = 30;
+
+	float missionTime;
+	int missionListPointer = 1;
 
 	// Use this for initialization
 	void Start () {
+		missionTime = interval;
 		//build the mission dictionary
+		/*
 		foreach (Mission mission in missions) {
 			missionsDict[mission.missionTag] = mission;
 		}
+		*/
+		missionsDict [pendingMissions [0].tag] = pendingMissions [0];
+		missions.Add (pendingMissions [0]);
 		gameplayLength *= 60;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (missionListPointer < pendingMissions.Count && Time.timeSinceLevelLoad >= missionTime) {
+			missionsDict[pendingMissions[missionListPointer].missionTag] = pendingMissions[missionListPointer];
+			missions.Add(pendingMissions[missionListPointer]);
+			missionListPointer++;
+			missionTime += interval;
+			GUIHandler.instance.buildMissionTexts ();
+		}
 	}
+
 
 	/// <summary>
 	/// Progresses the specified mission.

@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour {
 	/// <summary>
 	/// Possible spawn points of the enemies
 	/// </summary>
-	public List<Transform> possibleEnemySpawns = new List<Transform> ();
+	//public List<Transform> possibleEnemySpawns = new List<Transform> ();
 
 	/// <summary>
 	/// Possible enimies that can be spawned

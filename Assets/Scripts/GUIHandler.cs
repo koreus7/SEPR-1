@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using System.Linq;
 /// <summary>
 /// Link to website: https://shelduck.wordpress.com/
 /// Link to executables: https://shelduck.wordpress.com/downloads/
@@ -51,6 +51,8 @@ public class GUIHandler : MonoBehaviour {
 	public Text healthText;
 	public Image healthBar;
 
+	public List<Text> missionTexts = new List<Text> ();
+
 
 	/// <summary>
 	/// A prefab, the mission text GUI element to be isntanced to build the mission text panel.
@@ -65,9 +67,6 @@ public class GUIHandler : MonoBehaviour {
 	public GameObject pauseMissionPanel;
 
 	public Text timerText;
-
-	//Private var, list of mission texts for updating.
-	List<Text> missionTexts = new List<Text> ();
 
 	//incremented inside the mission constructions and update loops. 
 	private int missionTextsPositionOffset;
@@ -119,12 +118,32 @@ public class GUIHandler : MonoBehaviour {
 		}
 	}
 
+	int lastAddedMissionPointer = 0;
 	/// <summary>
 	/// Builds the mission GUI
 	/// </summary>
-	void buildMissionTexts () {
+	public void buildMissionTexts () {
 		//reset missiontexts flag, and start constructing the mission GUI
 		missionTextsPositionOffset = 0;
+		Debug.Log (lastAddedMissionPointer.ToString () + " is last added index, the count is : " + MissionManager.instance.missions.Count.ToString());
+		while (lastAddedMissionPointer < MissionManager.instance.missions.Count) {
+			Mission m = MissionManager.instance.missionsDict.Values.ToArray()[lastAddedMissionPointer];
+			Text t = (Text)Instantiate (missionTextPrefab,Vector2.zero, Quaternion.identity);
+			t.gameObject.GetComponent<Text>().text = m.missionText + ": " + m.progress.ToString()+"/"+m.completeProgress.ToString();
+			t.gameObject.transform.SetParent(missionPanel.transform);
+			t.rectTransform.localPosition = new Vector2(-110, 100-20*(1+lastAddedMissionPointer));
+			
+			//build pause menu
+			Text pauseText = (Text)Instantiate (missionTextPrefab,Vector2.zero, Quaternion.identity);
+			pauseText.gameObject.GetComponent<Text>().text = m.missionText + ": " + m.missionDescription;
+			pauseText.gameObject.transform.SetParent(pauseMissionPanel.transform);
+			pauseText.rectTransform.sizeDelta = new Vector2(500,30);
+			pauseText.rectTransform.localPosition = new Vector2(-245, 130-20*(1+lastAddedMissionPointer));
+
+			missionTexts.Add(t);
+			lastAddedMissionPointer++;
+		}
+		/*
 		foreach(Mission m in MissionManager.instance.missionsDict.Values) {
 			//build mission top left GUI
 			//instantiate a text gui element, set the text to the mission text, set its parent to the mission panel,
@@ -141,9 +160,11 @@ public class GUIHandler : MonoBehaviour {
 			pauseText.rectTransform.sizeDelta = new Vector2(500,30);
 			pauseText.rectTransform.localPosition = new Vector2(-245, 130-20*(1+missionTextsPositionOffset));
 
-			missionTexts.Add(t);
 			missionTextsPositionOffset++;
-		}
+			missionTexts.Add(pauseText);
+			//missionTexts.Add(t);
+			Debug.Log ("Rebuilt");
+		}*/
 	}
 
 	/// <summary>

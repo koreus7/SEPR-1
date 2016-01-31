@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.UI;
 
 /// <summary>
 /// Link to website: https://shelduck.wordpress.com/
@@ -286,24 +287,34 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+
+
+
+	//
+	// assessment 3 addition for powerups below to end of script.
+	//
+
+
+
+
 	void OnCollisionEnter (Collision c) {
-
-
 		if (c.transform.tag == "Enemy") {
 			//If we bump in to an enemy while we are invincible then kill them.
 			if (invincible ()) {
-				Enemy e = c.gameObject.GetComponent<Enemy> ();
-				e.decreaseHealth (e.health);
-
-				Instantiate (invincibleKillEffect, c.transform.position, Quaternion.identity);
+				if(c.transform.name != "GiantGoose") {
+					Enemy e = c.gameObject.GetComponent<Enemy> ();
+					e.decreaseHealth (e.health);
+					Instantiate (invincibleKillEffect, c.transform.position, Quaternion.identity);
+				}
 			}
 		}
 	}
 
+
     /// <summary>
-    /// Called by player states when the current powerup state changes.
+    ///Called by player states when the current powerup state changes.
     /// </summary>
-    public void onPowerupStateChanged(PlayerStates.PowerUpState value)
+	    public void onPowerupStateChanged(PlayerStates.PowerUpState value)
     {
         if (value == PlayerStates.PowerUpState.Shroomed)
         {
@@ -362,4 +373,4 @@ public class PlayerController : MonoBehaviour {
     {
         r.velocity = new Vector3(0, amount, 0);
     }
-}
+    }
