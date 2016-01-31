@@ -176,7 +176,7 @@ public class PlayerStates : MonoBehaviour {
     {
         currentPowerupState = PowerUpState.None;
 
-        playerController.onPowerupStateChanged(currentPowerupState);
+        playerController.onPowerupStateChanged(currentPowerupState);    
     }
 
 	/// <summary>
