@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &120788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 458584}
+  - 114: {fileID: 11421394}
+  - 114: {fileID: 11425762}
+  - 114: {fileID: 11423412}
+  - 114: {fileID: 11409426}
+  m_Layer: 0
+  m_Name: STATICS
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &458584
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 124.7411, y: 17.356035, z: 6.717853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11409426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8254805fc974997a2ba269c206744e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  currentState: 0
+  playerController: {fileID: 0}
+  currentPowerupState: 0
+  points: 0
+  resources: 10
+  energy: 50
+  energyIncreaseRate: 1
+  energyFlyingDecreaseRate: 0.5
+--- !u!114 &11421394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df2f66cd59b64354b7ebff241632509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 1
+  enemySpawnRadius: 60
+  enemySpawnIncreaseRate: 10
+  maxEnemies: 5
+  possibleEnemySpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemiesToSpawn:
+  - {fileID: 119402, guid: a639eff8fedec47c2b82c84de735b73b, type: 2}
+  - {fileID: 152848, guid: 2fcba16d76ecf46e4a06e64c0cfe1ef7, type: 2}
+  - {fileID: 119402, guid: a639eff8fedec47c2b82c84de735b73b, type: 2}
+  enemySpawnEffect: {fileID: 147994, guid: 1076b104891bb4be8b89e345ece0a9a4, type: 2}
+  collectablePrefabs:
+  - {fileID: 135152, guid: 4423f882a7d0c49eca44355383c96b7e, type: 2}
+  - {fileID: 130044, guid: 642393610aa63f545addf74c1167d620, type: 2}
+  - {fileID: 133716, guid: 087290e45c12047319a7ee5d7709316f, type: 2}
+  - {fileID: 156904, guid: 41fd3f8790aacdd42a9b2ab392893341, type: 2}
+  collSpawnRadius: 65
+  maxCollectables: 20
+  collectableSpawnHeight: 0.5
+--- !u!114 &11423412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f861d59f862fc4d67a179ca726b8d86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsText: {fileID: 0}
+  textUpdateEffect: {fileID: 114386, guid: c2a1bce35110e4b55a03ed54dc69db75, type: 2}
+  resourceText: {fileID: 0}
+  energyText: {fileID: 0}
+  energyBar: {fileID: 0}
+  barMaxWidth: 256
+  healthText: {fileID: 0}
+  healthBar: {fileID: 0}
+  missionTextPrefab: {fileID: 11494680, guid: a9f90fdf5bbe440c8b71687f88bd4262, type: 2}
+  missionPanel: {fileID: 0}
+  pauseMissionPanel: {fileID: 0}
+  timerText: {fileID: 0}
+--- !u!114 &11425762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27d45cf370a1a4a34ab0a78245783bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayLength: 5
+  missions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 120788}
+  m_IsPrefabParent: 1
