@@ -138,14 +138,18 @@ public class PlayerStates : MonoBehaviour {
 
 
 	public void alterHealth(int amount) {
-		//health must be between 0 and 100
-		health = Mathf.Clamp (health + amount, 0, 100);
-		GUIHandler.instance.updateHealthBar(health);
-		if (health == 0) {
-			GUIHandler.instance.updateGameOver ();
-			Invoke("loadMain",5f);
-		}
+        //health must be between 0 and 100
 
+        if (currentPowerupState != PowerUpState.Invincible)
+        {
+            health = Mathf.Clamp(health + amount, 0, 100);
+            GUIHandler.instance.updateHealthBar(health);
+            if (health == 0)
+            {
+                GUIHandler.instance.updateGameOver();
+                Invoke("loadMain", 5f);
+            }
+        }
 
 	}
 
