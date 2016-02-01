@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -139,10 +139,14 @@ public class PlayerStates : MonoBehaviour {
 
 	public void alterHealth(int amount) {
 		//health must be between 0 and 100
-		if (currentPowerupState != PowerUpState.Invincible) {
-			health = Mathf.Clamp (health + amount, 0, 100);
-			GUIHandler.instance.updateHealthBar (health);
+		health = Mathf.Clamp (health + amount, 0, 100);
+		GUIHandler.instance.updateHealthBar(health);
+		if (health == 0) {
+			GUIHandler.instance.updateGameOver ();
+			Invoke("loadMain",5f);
 		}
+
+
 	}
 
 	public void alterResources(int amount) {
@@ -203,5 +207,8 @@ public class PlayerStates : MonoBehaviour {
 		}
 	}
 
+	public void loadMain(){
+		Application.LoadLevel ("mainmenu");
+	}
 
 }
