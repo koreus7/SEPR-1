@@ -194,7 +194,7 @@ public class GUIHandler : MonoBehaviour {
 	}
 
 	public void updateGameOver () {
-		gameOver.text = "GAME OVER";
+        gameOver.text = "GAME OVER";
 	}
 
 	public void loadMain(){
