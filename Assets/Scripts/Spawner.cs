@@ -144,7 +144,7 @@ public class Spawner : MonoBehaviour {
 			}
 		}
 		//safety case
-		return player.transform.position;
+		return player.transform.position + new Vector3(Random.Range(0,10), Random.Range(0,2),0);
 	}
 
 	/// <summary>
