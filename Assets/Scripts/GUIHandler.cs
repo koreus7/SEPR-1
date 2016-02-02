@@ -66,8 +66,8 @@ public class GUIHandler : MonoBehaviour {
 
 	public Text timerText;
 
-	//Game Over Text
-	public Text gameOver;
+    //Game Over panel.
+    public GameObject gameOverPanel;
 
 	//Private var, list of mission texts for updating.
 	List<Text> missionTexts = new List<Text> ();
@@ -83,7 +83,6 @@ public class GUIHandler : MonoBehaviour {
 		//builds the mission texts and updates them.
 		buildMissionTexts ();
 		updateMissions ();
-		gameOver.text = "";
 	}
 
 	void Update () {
@@ -194,7 +193,7 @@ public class GUIHandler : MonoBehaviour {
 	}
 
 	public void updateGameOver () {
-        gameOver.text = "GAME OVER";
+        gameOverPanel.SetActive(true);
 	}
 
 	public void loadMain(){

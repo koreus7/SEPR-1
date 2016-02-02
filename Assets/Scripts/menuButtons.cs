@@ -6,7 +6,10 @@ using System.Collections;
 /// Link to executables: https://shelduck.wordpress.com/downloads/
 /// </summary>
 
-public class menuButtons : MonoBehaviour {
+public class MenuButtons : MonoBehaviour {
+
+    public GameObject highScoresPanel;
+
 	void Start() {		
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
@@ -14,5 +17,9 @@ public class menuButtons : MonoBehaviour {
 	public void pressPlay () {
 		Application.LoadLevel (1);
 	}
+
+    public void pressHighScores() {
+        highScoresPanel.GetComponent<HighScoresGUI>().openPanel();
+    }
 
 }

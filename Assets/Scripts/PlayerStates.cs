@@ -147,7 +147,6 @@ public class PlayerStates : MonoBehaviour {
             if (health == 0)
             {
                 GUIHandler.instance.updateGameOver();
-                Invoke("loadMain", 5f);
             }
         }
 
@@ -209,10 +208,6 @@ public class PlayerStates : MonoBehaviour {
 				GUIHandler.instance.updateEnergyBar(energy);
 			}
 		}
-	}
-
-	public void loadMain(){
-		Application.LoadLevel ("mainmenu");
 	}
 
 }
