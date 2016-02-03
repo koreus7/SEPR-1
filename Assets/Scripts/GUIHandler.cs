@@ -174,6 +174,7 @@ public class GUIHandler : MonoBehaviour {
 		//set the pointer to zero, and then update each mission text.
 		missionTextsPositionOffset = 0;
 		foreach (Mission m in MissionManager.instance.missionsDict.Values) {
+			Debug.Log ("Updating mission : " + m.missionTag);
 			missionTexts[missionTextsPositionOffset].text = m.missionText + ": " + m.progress.ToString() + "/" + m.completeProgress.ToString();
 			missionTextsPositionOffset++;
 		}

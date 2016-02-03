@@ -97,6 +97,8 @@ public class PlayerStates : MonoBehaviour {
 	int rabbitsKilled = 0;
 	int breadCollected = 0;
 
+	bool ended = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -105,13 +107,22 @@ public class PlayerStates : MonoBehaviour {
 
 		//ensures GUI is in sync with energy.
 		GUIHandler.instance.updateEnergyBar (energy);
-	
+		GUIHandler.instance.updateResourceText (resources.ToString (), "+"+resources.ToString ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		gradualEnergyChange ();
 		GUIHandler.instance.updateHealthBar(health);
+		if (Time.timeSinceLevelLoad > MissionManager.inst.gameplayLength && !ended) {
+			ended = true;
+			points += resources;
+			GUIHandler.instance.updatePointsText (points.ToString(), "+"+resources.ToString ());
+			GUIHandler.instance.updateResourceText("0",(-resources).ToString () );
+			resources = 0;
+			//uncomment following line to go to main menu at the end of the game
+			//Application.LoadLevel("mainmenu");
+		}
 	}
 
 	/// <summary>

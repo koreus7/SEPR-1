@@ -2,7 +2,7 @@
 using System.Collections;
 
 /// <summary>
-/// Link to website: https://shelduck.wordpress.com/
+/// Link to website: https://sheldukillgeeseck.wordpress.com/
 /// Link to executables: https://shelduck.wordpress.com/downloads/
 /// </summary>
 
@@ -69,7 +69,6 @@ public class Enemy : AI {
 
 	void OnCollisionEnter (Collision c) {
 		if (c.transform.tag == "Player" && Time.time >= lastDamageTime) {
-
 			PlayerStates.instance.alterHealth (-damageToPlayer);
 			lastDamageTime = Time.time + hitRate;
 		}

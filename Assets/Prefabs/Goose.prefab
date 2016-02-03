@@ -657,8 +657,9 @@ MonoBehaviour:
   damageToPlayer: 30
   hitRate: 1
   missionProgressTags:
-  - killgeese
   - killall
+  - killgeese
+  useEfficiency: 1
   wings: {fileID: 178298}
 --- !u!137 &13709056
 SkinnedMeshRenderer:
@@ -681,7 +682,9 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -729,7 +732,9 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -802,11 +807,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: missionProgressTags.Array.data[0]
-      value: killgeese
+      value: killall
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: missionProgressTags.Array.data[1]
-      value: killall
+      value: killgeese
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: missionProgressTags.Array.data[2]
+      value: killgeese
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
