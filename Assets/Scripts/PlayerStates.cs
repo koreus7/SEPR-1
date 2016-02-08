@@ -86,12 +86,18 @@ public class PlayerStates : MonoBehaviour {
 	/// </summary>
 	public float energyFlyingDecreaseRate;
 
+	public Text statusText;
+	bool shownLazerText = false;
+	bool shownBreadText = false;
+
 	//private variable for handling gradual energy increase.
 	float lastIncreaseTime;
 
 	int geeseKilled = 0;
 	int rabbitsKilled = 0;
 	int breadCollected = 0;
+
+	bool ended = false;
 
 
 	// Use this for initialization
@@ -101,13 +107,22 @@ public class PlayerStates : MonoBehaviour {
 
 		//ensures GUI is in sync with energy.
 		GUIHandler.instance.updateEnergyBar (energy);
-	
+		GUIHandler.instance.updateResourceText (resources.ToString (), "+"+resources.ToString ());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		gradualEnergyChange ();
 		GUIHandler.instance.updateHealthBar(health);
+		if (Time.timeSinceLevelLoad > MissionManager.inst.gameplayLength && !ended) {
+			ended = true;
+			points += resources;
+			GUIHandler.instance.updatePointsText (points.ToString(), "+"+resources.ToString ());
+			GUIHandler.instance.updateResourceText("0",(-resources).ToString () );
+			resources = 0;
+			//uncomment following line to go to main menu at the end of the game
+			//Application.LoadLevel("mainmenu");
+		}
 	}
 
 	/// <summary>
@@ -154,6 +169,25 @@ public class PlayerStates : MonoBehaviour {
 
 	public void alterResources(int amount) {
 		resources += amount;
+		if (resources >= 50 && !shownBreadText) {
+			shownBreadText = true;
+			CancelInvoke("ResetStatusText");
+			statusText.text = "You can buy bread powerup";
+			statusText.gameObject.SetActive(true);
+			Invoke ("ResetStatusText", 5);
+		}
+		if (resources >= 60 && !shownLazerText) {
+			shownLazerText = true;
+			CancelInvoke("ResetStatusText");
+			statusText.text = "You can buy lazer powerup";
+			statusText.gameObject.SetActive(true);
+			Invoke ("ResetStatusText", 5);
+		}
+	}
+
+	void ResetStatusText() {
+		statusText.text = "";
+		statusText.gameObject.SetActive (false);
 	}
 
 	/// <summary>

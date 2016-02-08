@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /// <summary>
 /// Link to website: https://shelduck.wordpress.com/
@@ -17,6 +18,19 @@ public class PauseMenu : MonoBehaviour {
 	/// Main pause panel
 	/// </summary>
 	public GameObject pauseMenuPanel;
+
+
+	// New for Assessment 3
+	public GameObject powerUpPanel;
+	public GameObject missionsPanel;
+
+	public Text breadText;
+	public Text lazerText;
+
+	bool breadBought = false;
+	bool lazerBought = false;
+	// end of new for assessment 3
+
 
 	bool paused = false;
 
@@ -45,6 +59,8 @@ public class PauseMenu : MonoBehaviour {
 		pauseMenuPanel.SetActive (true);
 		Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
+		powerUpPanel.SetActive (false);
+		missionsPanel.SetActive (true);
 	}
 
 	public void unpauseGame () {
@@ -76,5 +92,39 @@ public class PauseMenu : MonoBehaviour {
 	public void pressExitGame () {
 		Application.Quit ();
 	}
-}
 
+
+
+	//New for Assessment 3
+
+	public void pressPowerUps(){
+		if (powerUpPanel.activeSelf) {
+			powerUpPanel.SetActive (false);
+			missionsPanel.SetActive (true);
+		} else {
+			powerUpPanel.SetActive (true);
+			missionsPanel.SetActive (false);
+		}
+	}
+	public void pressBreadButton(){
+		if (PlayerStates.inst.resources >= 50 && !breadBought) {
+			breadBought = true;
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().breadShoot = true;
+			PlayerStates.inst.alterResources(-50);
+			GUIHandler.instance.updateResourceText(PlayerStates.inst.resources.ToString(), "-50", true);
+			breadText.text = "Already Bought";
+		}
+	}
+
+	public void pressLazerButton(){
+		if (PlayerStates.inst.resources >= 60 && !lazerBought) {
+			lazerBought = true;
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().lazerShoot = true;
+			PlayerStates.inst.alterResources(-60);
+			GUIHandler.instance.updateResourceText(PlayerStates.inst.resources.ToString(), "-60", true);
+			lazerText.text = "Already Bought";
+		}
+	}
+
+	//end of new for assessment 3
+}

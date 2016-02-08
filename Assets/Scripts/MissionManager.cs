@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 /// <summary>
 /// Link to website: https://shelduck.wordpress.com/
@@ -31,25 +32,36 @@ public class MissionManager : MonoBehaviour {
 	/// </summary>
 	public List<Mission> missions = new List<Mission>();
 
+	public List<Mission> pendingMissions = new List<Mission>();
+
 	/// <summary>
 	/// Used for internal structure of the class.
 	/// </summary>
 	public Dictionary<string, Mission> missionsDict = new Dictionary<string,Mission>();
 
+	public int interval = 30;
+
+	float missionTime;
+	int missionListPointer = 0;
 
 	// Use this for initialization
 	void Start () {
+		missionTime = 0;
 		//build the mission dictionary
-		foreach (Mission mission in missions) {
-			missionsDict[mission.missionTag] = mission;
-		}
 		gameplayLength *= 60;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (missionListPointer < pendingMissions.Count && Time.timeSinceLevelLoad >= missionTime) {
+			missionsDict[pendingMissions[missionListPointer].missionTag] = pendingMissions[missionListPointer];
+			missions.Add(pendingMissions[missionListPointer]);
+			missionListPointer++;
+			missionTime += interval;
+			GUIHandler.instance.buildMissionTexts ();
+		}
 	}
+
 
 	/// <summary>
 	/// Progresses the specified mission.
@@ -60,6 +72,7 @@ public class MissionManager : MonoBehaviour {
 	public void addProgress(string[] tag, int amount, bool updateGUI = true) {
 		//update progress, ensure its between 0 and max progress
 		foreach (string s in tag) {
+			//Debug.Log ("Progressing mission for tag : " + s + ". The tag " + s + " was found? " + missionsDict.ContainsKey(s).ToString());
 			if(missionsDict.ContainsKey(s)) {
 				missionsDict [s].progress = Mathf.Clamp (missionsDict[s].progress + amount, 0, missionsDict [s].completeProgress);
 				missionsDict [s].checkProgress ();
