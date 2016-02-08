@@ -97,9 +97,9 @@ public class Collectable : MonoBehaviour {
 	/// <param name="c">The thing we collided with</param>
 	void OnTriggerEnter (Collider c) {
 		if(c.transform.tag == "Player") {
-            PlayerStates.instance.alterHealth(healthOnCollect);
-            PlayerStates.instance.alterPoints(pointsOnCollect);
-            PlayerStates.instance.collectPowerup(powerup);
+			PlayerStates.instance.alterHealth(healthOnCollect);
+			PlayerStates.instance.alterPoints(pointsOnCollect);
+			PlayerStates.instance.collectPowerup(powerup);
 			GUIHandler.instance.updatePointsText(PlayerStates.instance.points.ToString(), "+"+pointsOnCollect.ToString());
 			if(resourceOnCollect != 0) {
 				PlayerStates.instance.alterResources(resourceOnCollect);
@@ -111,7 +111,4 @@ public class Collectable : MonoBehaviour {
 			Destroy(this.gameObject);
 		}
 	}
-
-
-
 }
