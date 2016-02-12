@@ -43,10 +43,12 @@ public class PauseMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButtonDown (pauseButtonName)) {
-			if(!paused) {
-				pauseGame();
-			} else {
-				unpauseGame();
+			if (Tutorial.started == true){
+			   if(!paused) {
+				   pauseGame();
+			}   else {
+			     	unpauseGame();
+			}
 			}
 		}
 	}
