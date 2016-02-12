@@ -143,11 +143,12 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 			//flying up
-			else if (transform.position.y <= maximumHeight && p.energy >= 0 && p.currentState != PlayerStates.State.Falling) {
+			else if (CanFly() && p.currentState != PlayerStates.State.Falling) {
 				startFlying ();
 				pos.y += ascentSpeed * Time.deltaTime;
 			}
 		}
+
 
 		//flying down
 		if (Input.GetButton ("Decend") && p.currentState == PlayerStates.State.Flying) {
@@ -186,6 +187,11 @@ public class PlayerController : MonoBehaviour {
         {
             p.cancelPowerups();
         }
+	}
+
+	public bool CanFly()
+	{
+		return transform.position.y <= maximumHeight && p.energy >= 0;
 	}
 
 	/// <summary>
@@ -314,7 +320,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     ///Called by player states when the current powerup state changes.
     /// </summary>
-	    public void onPowerupStateChanged(PlayerStates.PowerUpState value)
+	public void onPowerupStateChanged(PlayerStates.PowerUpState value)
     {
         if (value == PlayerStates.PowerUpState.Shroomed)
         {

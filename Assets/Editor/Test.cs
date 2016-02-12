@@ -2,30 +2,35 @@
 using UnityEditor;
 using NUnit.Framework;
 
-public class Test {
+public class Test 
+{
+
+	PlayerStates playerStates { 
+		get { 
+			return TestingStatics.instance.GetPlayerStates(); 
+		} 
+	}
+
+	PlayerController playerController { 
+		get {
+			return TestingStatics.instance.GetPlayerController ();
+		}
+	}
+		
 
 	[Test]
-	public void EditorTest()
+	public void PlayerStartsWith100Health()
 	{
-		//Arrange
-		var gameObject = new GameObject();
-
-		//Act
-		//Try to rename the GameObject
-		var newGameObjectName = "My game object";
-		gameObject.name = newGameObjectName;
-
-		//Assert
-		//The object has a new name
-		Assert.AreEqual(newGameObjectName, gameObject.name);
+		TestingStatics.instance.WaitForInit ();
+		Assert.AreEqual (100, playerStates.health);
 	}
 
 	[Test]
 	public void PlayerEnergy()
 	{
+		TestingStatics.instance.WaitForInit ();
 		// Test if the playerEnergy is always between 0 and 100
-		PlayerStates state = new PlayerStates ();
-		int playerEnergy = state.energy;
+		int playerEnergy = playerStates.energy;
 		Assert.GreaterOrEqual(playerEnergy, 0);
 		Assert.LessOrEqual(playerEnergy, 100);
 	}
@@ -33,11 +38,14 @@ public class Test {
 	[Test]
 	public void DecreaseHealth()
 	{
+		TestingStatics.instance.WaitForInit ();
 		// Test if the player's health decreases.
-		int originalHealth = PlayerStates.instance.health;
-		PlayerStates.instance.alterHealth (-10);
-		int newHealth = PlayerStates.instance.health;
+		int originalHealth = playerStates.health;
+		playerStates.alterHealth (-10);
+		int newHealth = playerStates.health;
 		Assert.Less(newHealth, originalHealth);
+
+		playerStates.health = 100;
 	}
 
 
