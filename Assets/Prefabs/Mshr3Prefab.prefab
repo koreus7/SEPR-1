@@ -122,7 +122,7 @@ MonoBehaviour:
   pointsEffect: {fileID: 0}
   powerup: 2
   bob: 0
-  abundace: 0.1
+  abundace: 0.2
   bobAmount: 0
   bobSpeed: 0
 --- !u!1001 &100100000
@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: abundace
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: powerup
