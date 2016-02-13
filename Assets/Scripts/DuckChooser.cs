@@ -4,7 +4,13 @@ using UnityEngine.UI;
 
 public class DuckChooser : MonoBehaviour {
 
-	//singleton. Access with PlayerStates.instance. ...
+	/// <summary>
+	/// Link to Team Eider's website: https://eldertheduck.wordpress.com/
+	/// Link to Team Shelduck's website: https://shelduck.wordpress.com/
+	/// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
+	/// </summary>
+
+	// Singleton. Access with PlayerStates.instance
 	public static DuckChooser inst;
 	public static DuckChooser instance {
 		get {

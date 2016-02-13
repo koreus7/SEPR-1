@@ -4,7 +4,13 @@ using System.Collections;
 using System.Linq;
 
 /// <summary>
-/// Manages the high scores gui.
+/// Link to Team Eider's website: https://eldertheduck.wordpress.com/
+/// Link to Team Shelduck's website: https://shelduck.wordpress.com/
+/// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
+/// </summary>
+
+/// <summary>
+/// Manages the high scores GUI.
 /// </summary>
 public class HighScoresGUI : MonoBehaviour {
 

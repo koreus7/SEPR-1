@@ -3,6 +3,12 @@ using System.Collections;
 
 public class UnicornBehaviour : MonoBehaviour {
 
+	/// <summary>
+	/// Link to Team Eider's website: https://eldertheduck.wordpress.com/
+	/// Link to Team Shelduck's website: https://shelduck.wordpress.com/
+	/// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
+	/// </summary>
+
 	Vector3 playerOrigionalPos;
 
 	public Vector3 playerMoveToPosition;

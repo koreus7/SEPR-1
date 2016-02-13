@@ -5,48 +5,51 @@ using NUnit.Framework;
 public class Test 
 {
 
-	PlayerStates playerStates { 
-		get { 
-			return TestingStatics.instance.GetPlayerStates(); 
-		} 
-	}
+	/// <summary>
+	/// Script containing all unit tests
+	/// </summary>
 
-	PlayerController playerController { 
-		get {
-			return TestingStatics.instance.GetPlayerController ();
-		}
-	}
-		
+	PlayerStates playerStates = new PlayerStates ();
 
 	[Test]
 	public void PlayerStartsWith100Health()
 	{
-		TestingStatics.instance.WaitForInit ();
+		PlayerStates playerStates = new PlayerStates ();
 		Assert.AreEqual (100, playerStates.health);
 	}
 
 	[Test]
 	public void PlayerEnergy()
 	{
-		TestingStatics.instance.WaitForInit ();
-		// Test if the playerEnergy is always between 0 and 100
 		int playerEnergy = playerStates.energy;
 		Assert.GreaterOrEqual(playerEnergy, 0);
 		Assert.LessOrEqual(playerEnergy, 100);
 	}
 
 	[Test]
-	public void DecreaseHealth()
+	public void AlterHealth()
 	{
-		TestingStatics.instance.WaitForInit ();
-		// Test if the player's health decreases.
 		int originalHealth = playerStates.health;
 		playerStates.alterHealth (-10);
 		int newHealth = playerStates.health;
 		Assert.Less(newHealth, originalHealth);
-
-		playerStates.health = 100;
+		playerStates.alterHealth (10);
+		Assert.AreEqual (playerStates.health, originalHealth);
 	}
+
+	[Test]
+	public void AlterResources()
+	{
+		PlayerStates states = new PlayerStates ();
+		int originalResources = states.resources;
+		states.alterResources (-10);
+		int newResources = states.resources;
+		Assert.Less (newResources, originalResources);
+		states.alterResources (10);
+		Assert.AreEqual (states.resources, originalResources);
+
+	}
+
 
 
 }

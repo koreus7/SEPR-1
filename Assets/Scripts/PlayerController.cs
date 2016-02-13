@@ -4,8 +4,9 @@ using DG.Tweening;
 using UnityEngine.UI;
 
 /// <summary>
-/// Link to website: https://shelduck.wordpress.com/
-/// Link to executables: https://shelduck.wordpress.com/downloads/
+/// Link to Team Eider's website: https://eldertheduck.wordpress.com/
+/// Link to Team Shelduck's website: https://shelduck.wordpress.com/
+/// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
 /// </summary>
 
 public class PlayerController : MonoBehaviour {
@@ -356,7 +357,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Jump up (so we dont fall through the ground) and grow.
     /// </summary>
-    void grow() {
+    public void grow() {
         jump(12);
         transform.DOScale(0.3f, 0.5f)
                 .SetEase(Ease.InBounce);
@@ -365,7 +366,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Scale back to normal size.
     /// </summary>
-    void shrink(){
+    public void shrink(){
         transform.DOScale(0.1f, 0.5f)
             .SetEase(Ease.InBounce);
     }

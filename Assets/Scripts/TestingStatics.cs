@@ -3,7 +3,6 @@ using System.Collections;
 
 /// <summary>
 /// Testing statics.
-/// 
 /// Gives the unit tests access to gameobjects in the scene.
 /// </summary>
 public class TestingStatics : MonoBehaviour 
