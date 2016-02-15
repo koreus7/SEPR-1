@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3956300a756894391e4a16cf8aa3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duckColorIndex: 0
+  duckColorIndex: 2
   duckBeakColors:
   - {r: 1, g: 0.7241379, b: 0, a: 1}
   - {r: 0.90263695, g: 1, b: 0.29411763, a: 0}

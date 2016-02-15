@@ -10,7 +10,7 @@ public class DuckChooser : MonoBehaviour {
 	/// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
 	/// </summary>
 
-	// Singleton. Access with PlayerStates.instance
+	// Singleton. Access with DuckChooser.instance
 	public static DuckChooser inst;
 	public static DuckChooser instance {
 		get {
@@ -41,7 +41,7 @@ public class DuckChooser : MonoBehaviour {
 	public Text duckName;
 	// Use this for initialization
 	void Start () {
-		
+        updateMaterials();
 	}
 	
 	// Update is called once per frame
