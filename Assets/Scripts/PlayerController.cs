@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		//get easy, readable reference to playerstates.
 		p = PlayerStates.instance;
-        p.playerController = this;
+        p.  playerController = this;
 	}
 	
 	// Update is called once per physics update
