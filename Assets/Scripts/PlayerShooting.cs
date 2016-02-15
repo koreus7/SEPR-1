@@ -51,7 +51,7 @@ public class PlayerShooting : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//When we shoot and havent recently shot, instantiate a projectile, give it forwards velocity, and update the GUI and the PlayerStates resources.
-		if (Input.GetButton ("Fire1") && Time.time >= lastfireTime + fireRate) {
+		if (Input.GetButton ("Fire1") && Time.time >= lastfireTime + fireRate && PlayerStates.instance.currentPowerupState != PlayerStates.PowerUpState.Shroomed) {
 			if(PlayerStates.instance.resources >= 0) {
 				GameObject g = (GameObject)Instantiate(projectile, transform.position + transform.forward, transform.rotation);
 				g.GetComponent<Rigidbody>().velocity = transform.forward*projectileSpeed;
