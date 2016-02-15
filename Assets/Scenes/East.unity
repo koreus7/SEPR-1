@@ -1271,7 +1271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11456718, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: missionText
-      value: He's useless
+      value: Find the Unicorn
       objectReference: {fileID: 0}
     - target: {fileID: 11456718, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: missionTag
