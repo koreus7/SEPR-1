@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8254805fc974997a2ba269c206744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 100
   currentState: 0
   playerController: {fileID: 0}
   currentPowerupState: 0
