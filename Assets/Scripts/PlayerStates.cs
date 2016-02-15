@@ -137,8 +137,8 @@ public class PlayerStates : MonoBehaviour {
 			}
 		}
 		if (Time.timeSinceLevelLoad > MissionManager.inst.gameplayLength && !ended) {
-			ended = true;
 			points += resources;
+			ended = true;
 			GUIHandler.instance.updatePointsText (points.ToString(), "+"+resources.ToString ());
 			GUIHandler.instance.updateResourceText("0",(-resources).ToString () );
 			resources = 0;

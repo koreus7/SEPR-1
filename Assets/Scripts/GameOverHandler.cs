@@ -20,6 +20,9 @@ public class GameOverHandler : MonoBehaviour
 
     void OnEnable()
     {
+		PlayerStates.inst.alterPoints (PlayerStates.inst.resources);
+		PlayerStates.inst.alterResources (-PlayerStates.inst.resources);
+		GUIHandler.instance.updateResourceText(0.ToString(), "-"+PlayerStates.inst.resources.ToString());
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
