@@ -16,8 +16,12 @@ public class MainMenuButtons : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-		Debug.Log (Time.timeScale);
     }
+
+    void Update()
+    {
+    }
+
     public void pressPlay()
     {
         Application.LoadLevel(1);
