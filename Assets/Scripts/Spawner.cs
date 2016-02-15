@@ -144,7 +144,7 @@ public class Spawner : MonoBehaviour {
 				return radiusAboutPlayer(distance,height,scanHeight);
 			}
 		}
-		//safety case
+		//safety case with randomness to stop stacking.
 		return player.transform.position + new Vector3(Random.Range(0,10), Random.Range(0,2),0);
 	}
 

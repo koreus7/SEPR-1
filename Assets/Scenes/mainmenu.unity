@@ -381,8 +381,8 @@ GameObject:
   - 223: {fileID: 317820687}
   - 114: {fileID: 317820686}
   - 114: {fileID: 317820685}
-  - 114: {fileID: 317820688}
   - 114: {fileID: 317820689}
+  - 114: {fileID: 317820688}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
