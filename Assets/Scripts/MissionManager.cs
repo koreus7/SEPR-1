@@ -48,7 +48,8 @@ public class MissionManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		missionTime = 0;
-		//build the mission dictionary
+		
+        //Turn gameplay length into seconds.
 		gameplayLength *= 60;
 	}
 	

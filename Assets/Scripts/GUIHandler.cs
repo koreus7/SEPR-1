@@ -76,6 +76,8 @@ public class GUIHandler : MonoBehaviour {
 
 	//incremented inside the mission constructions and update loops. 
 	private int missionTextsPositionOffset;
+
+    float timeStarted;
 	
 	void OnApplicationQuit() {
 		inst = null;
@@ -85,6 +87,7 @@ public class GUIHandler : MonoBehaviour {
 		//builds the mission texts and updates them.
 		buildMissionTexts ();
 		updateMissions ();
+        timeStarted = Time.time;
 	}
 
 	void Update () {
@@ -209,7 +212,7 @@ public class GUIHandler : MonoBehaviour {
 	}
 
 	public void updateTimer () {
-		timerText.text = Mathf.FloorToInt((MissionManager.instance.gameplayLength - Time.time)).ToString();
+		timerText.text = Mathf.FloorToInt((MissionManager.instance.gameplayLength - Time.time + timeStarted)).ToString();
 		if (timerText.text == "0"){
 			updateGameOver ();
 			Invoke("loadMain",5f);
