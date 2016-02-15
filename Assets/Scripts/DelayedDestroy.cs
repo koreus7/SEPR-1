@@ -7,13 +7,14 @@ using System.Collections;
 /// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
 /// </summary>
 
-public class delayedDestroy : MonoBehaviour {
+// Destroys the game object after the destroyDelay period is over.
+public class DelayedDestroy : MonoBehaviour {
 
 	public float destroyDelay;
 
 	// Use this for initialization
 	void Start () {
-		Invoke ("k", destroyDelay);
+		Invoke ("destroySelf", destroyDelay);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +22,7 @@ public class delayedDestroy : MonoBehaviour {
 	
 	}
 
-	void k() {
+	void destroySelf() {
 		Destroy (this.gameObject);
 	}
 }

@@ -22,7 +22,7 @@ public class GameOverHandler : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
+        Time.timeScale = 0;
         scoreText.text = PlayerStates.instance.points.ToString();
         GUI.FocusControl(nameInput.name);
     }

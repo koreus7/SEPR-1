@@ -7,7 +7,7 @@ using System.Collections;
 /// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
 /// </summary>
 
-public class projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour {
 
 	/// <summary>
 	/// The damage.

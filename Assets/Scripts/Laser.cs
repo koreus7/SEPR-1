@@ -7,7 +7,7 @@ using System.Collections;
 /// Link to Assessment 3 project version: https://eldertheduck.wordpress.com/assessment-3
 /// </summary>
 
-public class lasor : MonoBehaviour {
+public class Laser : MonoBehaviour {
 
 	/// <summary>
 	/// The fire rate.

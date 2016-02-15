@@ -55,7 +55,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 
-	void pauseGame() {
+	public void pauseGame() {
 		//stop time, show menu and cursor
 		Time.timeScale = 0;
 		paused = true;
