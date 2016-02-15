@@ -28,7 +28,7 @@ public class PlayerShooting : MonoBehaviour {
 	/// <summary>
 	/// The lasor prefab, if this weapon is enabled.
 	/// </summary>
-	public GameObject lasor;
+	public GameObject laser;
 
 	//used to track if the player is shooting too fast.
 	float lastfireTime = 0;
@@ -37,15 +37,15 @@ public class PlayerShooting : MonoBehaviour {
 	public float lazorCostInterval;
 
 	//active bread shooter
-	public bool breadShoot = false;
+	public bool multipleBreadUnlocked = false;
 
 	//active lazer shooter
-	public bool lazerShoot = false;
+	public bool laserUnlocked = false;
 
 
 	// Use this for initialization
 	void Start () {
-		lasor.SetActive (false);
+		laser.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -61,10 +61,10 @@ public class PlayerShooting : MonoBehaviour {
 			}
 		}
 
-		//Bread shooter. NEw assessment 3. Shoots array of projectiles when you click E.
+		//Bread shooter. New assessment 3. Shoots array of projectiles when you click E.
 		if (Input.GetKey (KeyCode.E) && Time.time >= lastfireTime + fireRate) {
 			if(PlayerStates.instance.resources >= 1) {
-				if (breadShoot) {
+				if (multipleBreadUnlocked) {
 					for(int i = 0; i < 10; i++) {
 						GameObject g = (GameObject)Instantiate(projectile, transform.position + transform.forward*(10-i), transform.rotation);
 						g.GetComponent<Rigidbody>().velocity = transform.forward*projectileSpeed+(transform.right*(5-i));
@@ -76,23 +76,34 @@ public class PlayerShooting : MonoBehaviour {
 			}
 		}
 
-		//lazer weapon. (Updated assesment 3)Enables and disables the lasor object on the player.
+		//laser weapon. (Updated assesment 3)Enables and disables the Laser object on the player.
 		if (Input.GetKeyDown (KeyCode.Q)) {
-			if (lazerShoot) {
-				lasor.SetActive (true);
+			if (CanShootLazer()) {
+				laser.SetActive (true);
 				lazorCostTime = Time.time;
 			}
 		}
 		if (Input.GetKey (KeyCode.Q)) {
-			if (lazerShoot){
-				if(Time.time >= lazorCostTime) {
-					PlayerStates.instance.alterResources(-1);
-					GUIHandler.instance.updateResourceText(PlayerStates.instance.resources.ToString(), "-1", true);
-					lazorCostTime = Time.time + lazorCostInterval;
-				}
-			}
+            if (CanShootLazer())
+            {
+                if (Time.time >= lazorCostTime)
+                {
+                    PlayerStates.instance.alterResources(-1);
+                    GUIHandler.instance.updateResourceText(PlayerStates.instance.resources.ToString(), "-1", true);
+                    lazorCostTime = Time.time + lazorCostInterval;
+                }
+            }
+            else
+            {
+                laser.SetActive(false);
+            }
 		} else if (Input.GetKeyUp (KeyCode.Q)) {
-			lasor.SetActive(false);
+			laser.SetActive(false); 
 		}
 	}
+
+    public bool CanShootLazer()
+    {
+        return laserUnlocked && PlayerStates.instance.resources > 0;
+    }
 }

@@ -1616,7 +1616,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11484422, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
       propertyPath: lazorCostInterval
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 11459234, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
       propertyPath: starTimeText
@@ -1630,6 +1630,18 @@ Prefab:
       propertyPath: lockCursor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 125756, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
+      propertyPath: m_Name
+      value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 125756, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484422, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 1210997381}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
   m_IsPrefabParent: 0
@@ -3680,6 +3692,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 293703622}
   m_Script: {fileID: 11500000, guid: c73a0a7889c344e5a9104c553ffa5f6a, type: 3}
+--- !u!1 &1210997381 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 125756, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
+  m_PrefabInternal: {fileID: 513423861}
 --- !u!1 &1211173710
 GameObject:
   m_ObjectHideFlags: 0

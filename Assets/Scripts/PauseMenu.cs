@@ -112,7 +112,7 @@ public class PauseMenu : MonoBehaviour {
 	public void pressBreadButton(){
 		if (PlayerStates.inst.resources >= 50 && !breadBought) {
 			breadBought = true;
-			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().breadShoot = true;
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().multipleBreadUnlocked = true;
 			PlayerStates.inst.alterResources(-50);
 			GUIHandler.instance.updateResourceText(PlayerStates.inst.resources.ToString(), "-50", true);
 			breadText.text = "Already Bought";
@@ -122,7 +122,7 @@ public class PauseMenu : MonoBehaviour {
 	public void pressLazerButton(){
 		if (PlayerStates.inst.resources >= 60 && !lazerBought) {
 			lazerBought = true;
-			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().lazerShoot = true;
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerShooting> ().laserUnlocked = true;
 			PlayerStates.inst.alterResources(-60);
 			GUIHandler.instance.updateResourceText(PlayerStates.inst.resources.ToString(), "-60", true);
 			lazerText.text = "Already Bought";
