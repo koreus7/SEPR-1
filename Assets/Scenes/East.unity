@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8254805fc974997a2ba269c206744e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1
   currentState: 0
   playerController: {fileID: 0}
   currentPowerupState: 0
@@ -5228,11 +5228,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22404038, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 2
+      value: -248
       objectReference: {fileID: 0}
     - target: {fileID: 22404038, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 16
+      value: -84
       objectReference: {fileID: 0}
     - target: {fileID: 22404038, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_SizeDelta.x
@@ -5260,11 +5260,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22404038, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22404038, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 126458, guid: 86096c1b9d5c5c04886bde14c9f932d8, type: 2}
       propertyPath: m_IsActive
