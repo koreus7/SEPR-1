@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3736334d947f745d3a981f6d724169e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsOnCollect: 0
-  resourceOnCollect: 0
-  energyOnCollect: 0
+  pointsOnCollect: 1
+  resourceOnCollect: 1
+  energyOnCollect: 1
   healthOnCollect: 20
   pointsEffect: {fileID: 147994, guid: 1076b104891bb4be8b89e345ece0a9a4, type: 2}
   powerup: 0
@@ -149,6 +149,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: abundace
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pointsOnCollect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: resourceOnCollect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: energyOnCollect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

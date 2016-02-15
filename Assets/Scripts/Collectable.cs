@@ -61,6 +61,8 @@ public class Collectable : MonoBehaviour {
 	/// </summary>
 	public float bobSpeed;
 
+	public string[] missionTags;
+
 	Transform pointsText;
 
 	Vector3 startPosition;
@@ -98,6 +100,7 @@ public class Collectable : MonoBehaviour {
 	/// <param name="c">The thing we collided with</param>
 	void OnTriggerEnter (Collider c) {
 		if(c.transform.tag == "Player") {
+			MissionManager.inst.addProgress (missionTags, 1);
 			PlayerStates.instance.alterHealth(healthOnCollect);
 			PlayerStates.instance.alterPoints(pointsOnCollect);
 			PlayerStates.instance.collectPowerup(powerup);

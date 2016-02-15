@@ -1231,11 +1231,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 95.1339722
+      value: 95.13397
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.8053627
+      value: -15.805363
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1941,6 +1941,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 600987263}
+--- !u!1 &609652385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 609652386}
+  - 114: {fileID: 609652387}
+  m_Layer: 0
+  m_Name: MFindShroom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &609652386
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609652385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.26009, y: -0.34265137, z: -76.500275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2127972496}
+  m_RootOrder: 8
+--- !u!114 &609652387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609652385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb9cd566037547dd91bdfa50724f9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+  missionDescription: Find a mushroom
+  missionText: Find a mushroom
+  missionTag: findmushroom
+  progress: 0
+  completeProgress: 1
+  pointsForComplete: 20
 --- !u!1 &631860418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2130,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 690501419}
+--- !u!1 &746539883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 746539884}
+  - 114: {fileID: 746539885}
+  m_Layer: 0
+  m_Name: MHighHealth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &746539884
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746539883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.26009, y: -0.34265137, z: -76.500275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2127972496}
+  m_RootOrder: 5
+--- !u!114 &746539885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 746539883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb9cd566037547dd91bdfa50724f9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+  missionDescription: Keep your health above 90% for 30seconds
+  missionText: Keep your health high!
+  missionTag: highhealth
+  progress: 0
+  completeProgress: 1
+  pointsForComplete: 120
 --- !u!1 &790431809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3495,11 +3587,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 977541255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 364.98145, y: 184.22414, z: 115.66051}
+  m_LocalPosition: {x: 354.72134, y: 183.88148, z: 39.160233}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 2127972496}
+  m_RootOrder: 6
 --- !u!1001 &1010585982
 Prefab:
   m_ObjectHideFlags: 0
@@ -3509,11 +3601,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 95.1339645
+      value: 95.133965
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.8053627
+      value: -15.805363
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3546,6 +3638,52 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 440118, guid: de17cd2bf7a14435c8efa95457786556, type: 2}
   m_PrefabInternal: {fileID: 513423861}
+--- !u!1 &1087623299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1087623300}
+  - 114: {fileID: 1087623301}
+  m_Layer: 0
+  m_Name: MFindStar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1087623300
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1087623299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.26009, y: -0.34265137, z: -76.500275}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2127972496}
+  m_RootOrder: 7
+--- !u!114 &1087623301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1087623299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb9cd566037547dd91bdfa50724f9d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  complete: 0
+  missionDescription: Find a star
+  missionText: Find a star
+  missionTag: findstar
+  progress: 0
+  completeProgress: 1
+  pointsForComplete: 40
 --- !u!1 &1104853153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,11 +4980,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 95.1339722
+      value: 95.13397
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.8053627
+      value: -15.805363
       objectReference: {fileID: 0}
     - target: {fileID: 438568, guid: 2431e8657f79f4e77978bc3c8dcb2780, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4954,7 +5092,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &1603136449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4969,10 +5107,13 @@ MonoBehaviour:
   gameplayLength: 5
   missions: []
   pendingMissions:
+  - {fileID: 609652387}
+  - {fileID: 1087623301}
+  - {fileID: 977541256}
   - {fileID: 287336724}
   - {fileID: 2142173418}
+  - {fileID: 746539885}
   - {fileID: 911117641}
-  - {fileID: 977541256}
   - {fileID: 1649130296}
   - {fileID: 581784324}
   interval: 10
@@ -5021,6 +5162,7 @@ MonoBehaviour:
   energyIncreaseRate: 1
   energyFlyingDecreaseRate: 0.5
   statusText: {fileID: 1624756008}
+  timeHealthAbove90: 0
 --- !u!114 &1603136452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6368,11 +6510,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 446084, guid: 875bcb1c3bdae4833b71f71e39d12ba7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 95.1339645
+      value: 95.133965
       objectReference: {fileID: 0}
     - target: {fileID: 446084, guid: 875bcb1c3bdae4833b71f71e39d12ba7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -15.8053627
+      value: -15.805363
       objectReference: {fileID: 0}
     - target: {fileID: 446084, guid: 875bcb1c3bdae4833b71f71e39d12ba7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6435,6 +6577,10 @@ Transform:
   - {fileID: 911117640}
   - {fileID: 1649130295}
   - {fileID: 581784323}
+  - {fileID: 746539884}
+  - {fileID: 977541257}
+  - {fileID: 1087623300}
+  - {fileID: 609652386}
   m_Father: {fileID: 0}
   m_RootOrder: 8
 --- !u!114 &2142173418 stripped

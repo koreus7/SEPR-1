@@ -125,6 +125,8 @@ MonoBehaviour:
   abundace: 0.1
   bobAmount: 0
   bobSpeed: 0
+  missionTags:
+  - findmushroom
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -132,6 +134,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: missionTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.y
       value: 3.80999994
@@ -155,6 +161,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: abundace
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: missionTags.Array.data[0]
+      value: findmushroom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

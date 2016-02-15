@@ -98,6 +98,8 @@ public class PlayerStates : MonoBehaviour {
 	int rabbitsKilled = 0;
 	int breadCollected = 0;
 
+	public float timeHealthAbove90;
+
 	bool ended = false;
 
 
@@ -109,12 +111,31 @@ public class PlayerStates : MonoBehaviour {
 		//ensures GUI is in sync with energy.
 		GUIHandler.instance.updateEnergyBar (energy);
 		GUIHandler.instance.updateResourceText (resources.ToString (), "+"+resources.ToString ());
+		timeHealthAbove90 = 0;
 	}
-	
+
+	bool HasHealthMission() {
+		bool retVal = false;
+		foreach (Mission m in MissionManager.inst.missions) {
+			if (m.missionTag == "highhealth") {
+				retVal = true;
+			}
+		}
+		return retVal;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		gradualEnergyChange ();
 		GUIHandler.instance.updateHealthBar(health);
+		if (PlayerStates.inst.health >= 90 && HasHealthMission()) {
+			timeHealthAbove90 += Time.deltaTime;
+			if (timeHealthAbove90 >= 30) {
+				string[] thisTag = new string[1];
+				thisTag [0] = "highhealth";
+				MissionManager.inst.addProgress (thisTag, 1);
+			}
+		}
 		if (Time.timeSinceLevelLoad > MissionManager.inst.gameplayLength && !ended) {
 			ended = true;
 			points += resources;
@@ -156,7 +177,7 @@ public class PlayerStates : MonoBehaviour {
 	public void alterHealth(int amount) {
 		
         //health must be between 0 and 100
-        if (currentPowerupState != PowerUpState.Invincible)
+		if (currentPowerupState != PowerUpState.Invincible)
         {
             health = Mathf.Clamp(health + amount, 0, 100);
             GUIHandler.instance.updateHealthBar(health);
@@ -164,7 +185,14 @@ public class PlayerStates : MonoBehaviour {
             {
                 GUIHandler.instance.updateGameOver();
             }
-        }
+		} else if(amount >= 0) {
+			health = Mathf.Clamp(health + amount, 0, 100);
+			GUIHandler.instance.updateHealthBar(health);
+			if (health == 0)
+			{
+				GUIHandler.instance.updateGameOver();
+			}
+		}
 
 	}
 
