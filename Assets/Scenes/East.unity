@@ -2481,7 +2481,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Cost: 60 Resources
 
-    To use press E'
+    To use press Q'
 --- !u!222 &865782816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6090,7 +6090,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Cost: 50 Resources
 
-    To use press Q'
+    To use press E'
 --- !u!222 &1954029024
 CanvasRenderer:
   m_ObjectHideFlags: 0
